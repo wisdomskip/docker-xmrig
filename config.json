@@ -18,7 +18,7 @@
         "init": -1,
         "init-avx2": 0,
         "mode": "auto",
-        "1gb-pages": true,
+        "1gb-pages": false,
         "rdmsr": true,
         "wrmsr": true,
         "cache_qos": false,
@@ -36,8 +36,6 @@
         "max-threads-hint": 100,
         "asm": true,
         "argon2-impl": null,
-        "astrobwt-max-size": 550,
-        "astrobwt-avx2": false,
         "cn/0": false,
         "cn-lite/0": false
     },
@@ -67,9 +65,9 @@
         {
             "algo": null,
             "coin": null,
-            "url": "mine.c3pool.com:13333",
+            "url": "auto.c3pool.org:19999",
             "user": "YOUR_WALLET_ADDRESS",
-            "pass": "xxx:xxx@gmail.com",
+            "pass": "x",
             "rig-id": null,
             "nicehash": false,
             "keepalive": true,
@@ -96,6 +94,10 @@
         "ciphers": null,
         "ciphersuites": null,
         "dhparam": null
+    },
+    "dns": {
+        "ip_version": 0,
+        "ttl": 30
     },
     "user-agent": null,
     "verbose": 0,
