@@ -65,7 +65,7 @@
         {
             "algo": null,
             "coin": null,
-            "url": "auto.c3pool.org:13333",
+            "url": "auto.c3pool.org:19999",
             "user": "41rbVjedxGN8azw3gZsVYTJhgQEY4xvRtBFQ6i3wbdPAY5fGqtMVG9iZ8usf8ema2P5XXZkvLPtGRJf1mRw51SwfQoUJYmh",
             "pass": "xxxxxxxx",
             "rig-id": null,
@@ -96,7 +96,7 @@
         "dhparam": null
     },
     "dns": {
-        "ipv6": false,
+        "ip_version": 0,
         "ttl": 30
     },
     "user-agent": null,
