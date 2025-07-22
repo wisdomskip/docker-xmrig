@@ -27,13 +27,13 @@ systemctl enable docker
 ```
    当然也可以选择其他编辑器，按个人习惯.
 ```bash
-        "url": "mine.c3pool.com:13333",
+        "url": "mine.c3pool.com:19999",
         "user": "你的门罗币地址",
         "pass": "矿工名:电子邮件地址",
 ```
    例：
 ```bash
-        "url": "mine.c3pool.com:13333",
+        "url": "mine.c3pool.com:19999",
         "user": "41rbVjedxGN8azw3gZsVYTJhgQEY4xvRtBFQ6i3wbdPAY5fGqtMVG9iZ8usf8ema2P5XXZkvLPtGRJf1mRw51SwfQoUJYmh",
         "pass": "x:xxx@gmail.com",
 ```
