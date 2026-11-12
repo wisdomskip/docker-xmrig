@@ -1,0 +1,46 @@
+name: Build and Push Docker Image
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set date tag
+        id: set-date
+        run: |
+          TAG=$(date -u +%Y%m%d)
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "Build date tag: ${TAG}"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_REPO }}:latest
+            ${{ secrets.DOCKERHUB_REPO }}:${{ steps.set-date.outputs.tag }}
+
+      - name: Sync README to Docker Hub
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: ${{ secrets.DOCKERHUB_REPO }}
+          readme-filepath: ./README.md
