@@ -5,6 +5,15 @@ on:
     - cron: '0 0 1 * *'
   workflow_dispatch:
 
+env:
+  # 关闭调试日志，防止开启debug后secret泄露
+  ACTIONS_STEP_DEBUG: false
+  ACTIONS_RUNNER_DEBUG: false
+  # 关闭dockerbuild摘要工件、关闭默认溯源证明，避免镜像名称泄露
+  DOCKER_BUILD_SUMMARY: false
+  BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
